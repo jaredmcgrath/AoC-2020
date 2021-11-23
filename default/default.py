@@ -52,7 +52,15 @@ def find_path_to_helpers(target_folder="helpers", quiet=False):
 
 
 def load_data(quiet=True):
-    pass
+    find_path_to_helpers(quiet=quiet)
+    if __package__:
+        from ..helpers import get_input
+    else:
+        from helpers import get_input
+
+    data = get_input()
+
+    return data
 
 # %% Part 1
 
